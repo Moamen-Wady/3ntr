@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+
+@media only screen and (max-width: 500px) {
+    body .form input {
+        font-size: calc(var(--rem1));
+    }
+    body .form textarea {
+        font-size: calc(var(--rem1));
+    }
+}
+@media only screen and (max-width: 410px) {
+    body .form input {
+        font-size: calc(var(--rem1) * 0.8);
+    }
+    body .form textarea {
+        font-size: calc(var(--rem1) * 0.8);
+    }
+}
+@media only screen and (max-width: 328px) {
+    body .form input {
+        font-size: calc(var(--rem1) * 0.7);
+    }
+    body .form textarea {
+        font-size: calc(var(--rem1) * 0.7);
+    }
+}
+
+#container {
+    display: block;
+    width: 100%;
+}
+
+.form {
+    width: 80%;
+    background-color: #c99f4b;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5%;
+    border: 3px solid black;
+    margin: auto;
+    margin-top: var(--rem3);
+    margin-bottom: var(--rem2);
+    padding: var(--rem2);
+    padding-left: 0;
+}
+.form1 {
+    width: calc(var(--rem5) * 12);
+    background-color: var(--black2);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5%;
+    border: 3px solid black;
+    margin: auto;
+    margin-top: var(--rem2);
+    margin-bottom: var(--rem2);
+    padding: calc(var(--rem05) * 0.1);
+}
+
+.form p {
+    display: block;
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: calc(var(--rem1) * 1.2);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form img {
+    width: calc(var(--rem5) * 1.5);
+    height: calc(var(--rem5) * 1.5);
+    text-align: left;
+}
+
+.form input {
+    display: block;
+    width: 80%;
+    margin: auto;
+    margin-top: 1%;
+    background-color: rgb(240, 234, 186);
+    color: black;
+    height: max-content;
+    font-size: calc(var(--rem1) * 1.2);
+    border: 1px solid grey;
+    padding: 1%;
+}
+.form textarea {
+    display: block;
+    padding: 1%;
+    width: 80%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: rgb(240, 234, 186);
+    color: black;
+    height: var(--rem5);
+    font-size: calc(var(--rem1) * 1.25);
+}
+.form span {
+    display: block;
+    margin: auto;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 5%;
+    height: var(--rem2);
+    width: 100%;
+    cursor: pointer;
+    transition-property: width;
+    transition-timing-function: ease-in-out;
+    padding: var(--rem05);
+}
+.form span > p {
+    color: var(--black2);
+    font-family: monospace;
+    font-size: calc(var(--rem1) * 1);
+    display: inline;
+    margin: auto;
+    width: 100%;
+    vertical-align: super;
+}
+.form span:hover {
+    background-color: rgb(255, 251, 0);
+    color: white;
+    transform: scale(1.1);
+}
+
+.form button {
+    appearance: none;
+    padding: 1%;
+    background-color: transparent;
+    border: 0;
+    margin: var(--rem1);
+}
+.form input:nth-last-child(1) {
+    display: inline-block;
+    cursor: pointer;
+    width: 15%;
+    height: max-content;
+    padding: 1%;
+}

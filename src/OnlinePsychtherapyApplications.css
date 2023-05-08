@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300&family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&display=swap");
+
+.ostlt {
+    width: 60%;
+    display: block;
+}
+.ostprt {
+    background: rgb(0, 0, 0, 0.2);
+    display: block;
+    margin: 1%;
+    padding-left: 1%;
+
+}
+
+.ostprt a {
+    font-size: var(--rem105);
+    display: block;
+}
+
+.ostcont h1 {
+    font-size: calc(var(--rem2) * 1.25);
+    display: inline-block;
+    color: white;
+    font-family: sans-serif;
+}
+.ostcont h2 {
+    display: inline-block;
+    color: white;
+    font-family: sans-serif;
+    font-size: calc(var(--rem1) * 1.25);
+}
+
+.ostprt img {
+    width: 13%;
+    float: right;
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+.ostrt {
+    width: 18%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.ostrt img {
+    width: 95%;
+    display: block;
+    padding: 2%;
+}
+
+.ostc1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}

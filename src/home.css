@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300&family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&display=swap");
+
+.rt {
+    width: 12%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    border: 1px solid white;
+}
+
+.rt img {
+    width: 95%;
+    display: block;
+    padding: 2%;
+    border: 1px solid white;
+}
+
+.c1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid white;
+    overflow: hidden;
+}
+
+.rt1 img,
+.rt2 img,
+.rt3 img {
+    width: 100%;
+}
+
+.rt1,
+.rt2,
+.rt3 {
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(var(--rem5) * 3);
+}
+
+.slidein {
+    animation-name: slidein;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.slideout {
+    animation-name: slideout;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes slidein {
+    from {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+    }
+
+    to {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+}
+
+@keyframes slideout {
+    from {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    to {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+    }
+}

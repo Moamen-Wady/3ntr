@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    background-image: url("../public/bg.jpg");
+    background-attachment: local;
+    background-size: cover;
+    background-position: center;
+    margin: var(--rem05);
+    text-transform: capitalize;
+}

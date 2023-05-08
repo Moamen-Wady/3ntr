@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
+.nvbr {
+    width: 80%;
+    display: block;
+    margin-right: auto;
+    color: white;
+    font-size: var(--rem2);
+    text-align: center;
+    height: var(--rem5);
+    float: left;
+}
+
+.icon1 {
+    width: fit-content;
+    float: left;
+}
+
+.icon1 img {
+    width: var(--rem3);
+}
+
+.icon {
+    width: 22%;
+    float: left;
+}
+.icon img {
+    width: var(--rem3);
+}
+
+.iconl {
+    width: fit-content;
+    float: right;
+}
+.iconl img {
+    width: var(--rem3);
+}
+
+.ul {
+    list-style-type: none;
+    display: block;
+}
+
+.nvbr a {
+    display: block;
+    cursor: pointer;
+}
+
+.logo {
+    display: block;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    width: max-content;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    width: calc(var(--rem5) * 4.5);
+}
+
+#i1,
+#i2,
+#i3,
+#i4,
+#i5,
+#i6,
+#view {
+    display: none;
+}
+
+.n img {
+    width: var(--rem3);
+    display: inline;
+    padding: 0;
+}
+
+.main {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    transition: all ease-in-out;
+    z-index: 500;
+    background: rgba(255, 255, 255, 0.2);
+    width: max-content;
+
+    position: absolute;
+    top: 14%;
+    left: 3%;
+    display: inline-block;
+    offset: 0;
+}
+
+.n a {
+    display: block;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    font-size: var(--rem105);
+    font-family: sans-serif;
+    padding: var(--rem1);
+    width: 100%;
+}
+
+.n:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    color: white;
+}
+.n {
+    text-align: left;
+    display: block;
+    width: 100%;
+    transition: display 1s ease-in-out;
+}
+
+#view,
+#hide {
+    border-bottom: none;
+    padding: var(--rem05);
+}
+
+#haha :hover,
+#view :hover,
+#hide :hover {
+    background-color: transparent;
+}
+
+.signf {
+    display: none;
+    width: max-content;
+    background-color: white;
+    text-align: left;
+    padding: var(--rem05);
+    border-radius: 5%;
+}
+
+.signf a {
+    background-color: gray;
+    color: black;
+    font-size: var(--rem1);
+    width: max-content;
+    display: block;
+    margin: auto;
+    margin-top: var(--rem05);
+    margin-bottom: var(--rem05);
+}
+
+.signf p {
+    display: block;
+    margin: 0;
+    font-size: var(--rem1);
+    color: black;
+}
+.signf input {
+    margin-right: var(--rem05);
+    margin: 0;
+    background-color: gray;
+    border: 0;
+    width: 50%;
+    float: right;
+}
+
+.signup {
+    background-color: white;
+    padding: var(--rem1);
+    display: none;
+    width: max-content;
+}
+
+.signup h1 {
+    display: block;
+    margin: auto;
+    color: black;
+    font-size: var(--rem2);
+    margin-bottom: var(--rem1);
+}
+
+.signup a {
+    display: inline-block;
+    background-color: #90b8fa;
+    margin-left: var(--rem05);
+    margin-right: var(--rem05);
+    padding: var(--rem05);
+    border-radius: 4%;
+    font-size: var(--rem1);
+}
+
+.signf,
+.signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cancel {
+    background-color: gray;
+    color: black;
+    font-size: var(--rem1);
+    width: max-content;
+    display: block;
+    margin: auto;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem05);
+}
+
+.slidein {
+    animation-name: slidein;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    display: block;
+}
+
+.slideout {
+    display: block;
+    animation-name: slideout;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+    from {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+    }
+
+    to {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+}
+
+@keyframes slideout {
+    from {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    to {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+    }
+}

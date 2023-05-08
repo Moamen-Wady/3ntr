@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
+@media only screen and (min-width: 2000px) {
+    :root {
+        --rem05: 1rem;
+        --rem1: 2rem;
+        --rem105: 3rem;
+        --rem2: 4rem;
+        --rem3: 6rem;
+        --rem35: 7rem;
+        --rem4: 8rem;
+        --rem5: 6rem;
+    }
+}
+@media only screen and (max-width: 1999px) {
+    :root {
+        --rem05: 0.75rem;
+        --rem1: 1.5rem;
+        --rem105: 2.25rem;
+        --rem2: 3rem;
+        --rem3: 4.5rem;
+        --rem35: 5rem;
+        --rem4: 6rem;
+        --rem5: 7.5rem;
+    }
+}
+@media only screen and (max-width: 1620px) {
+    :root {
+        --rem05: 0.5rem;
+        --rem1: 1rem;
+        --rem105: 1.5rem;
+        --rem2: 2rem;
+        --rem3: 3rem;
+        --rem35: 3.5rem;
+        --rem4: 4rem;
+        --rem5: 5rem;
+    }
+}
+@media only screen and (max-width: 1365px) {
+    :root {
+        --rem05: 0.4rem;
+        --rem1: 0.8rem;
+        --rem105: 1.2rem;
+        --rem2: 1.6rem;
+        --rem3: 2.4rem;
+        --rem35: 2.8rem;
+        --rem4: 3.2rem;
+        --rem5: 4rem;
+    }
+}
+@media only screen and (max-width: 807px) {
+    :root {
+        --rem05: 0.4rem;
+        --rem1: 0.8rem;
+        --rem105: 1.2rem;
+        --rem2: 1.6rem;
+        --rem3: 2.4rem;
+        --rem35: 2.8rem;
+        --rem4: 3.2rem;
+        --rem5: 4rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    :root {
+        --rem05: 0.3rem;
+        --rem1: 0.65rem;
+        --rem105: 0.85rem;
+        --rem2: 1.2rem;
+        --rem3: 1.8rem;
+        --rem35: 2.1rem;
+        --rem4: 2.6rem;
+        --rem5: 3rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    :root {
+        --rem05: 0.3rem;
+        --rem1: 0.65rem;
+        --rem105: 0.85rem;
+        --rem2: 1.2rem;
+        --rem3: 1.8rem;
+        --rem35: 2.1rem;
+        --rem4: 2.6rem;
+        --rem5: 3rem;
+    }
+    body .xcon {
+        flex-direction: column;
+    }
+    body .portion {
+        width: 95%;
+    }
+    body .xl {
+        display: inline-block;
+    }
+    body .lgsf img {
+        display: inline-block;
+        margin: var(--rem1);
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    :root {
+        --rem05: 0.3rem;
+        --rem1: 0.65rem;
+        --rem105: 0.85rem;
+        --rem2: 1.2rem;
+        --rem3: 1.8rem;
+        --rem35: 2.1rem;
+        --rem4: 2.6rem;
+        --rem5: 3rem;
+    }
+    body .xcon {
+        flex-direction: column;
+    }
+    body .portion {
+        width: 100%;
+    }
+    body .xl {
+        display: inline-block;
+    }
+    body .lgsf img {
+        display: inline-block;
+        margin: var(--rem1);
+    }
+
+    body .ful {
+        font-size: calc(var(--rem1) * 1.15);
+    }
+}
+
+.ff {
+    margin-top: var(--rem05);
+    background: transparent;
+    border: 1px solid white;
+}
+.xcon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background: transparent;
+    padding: var(--rem1);
+}
+
+.portion {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    color: white;
+    border-left: 1px solid white;
+    padding: var(--rem05);
+}
+
+.ful {
+    display: inline-block;
+    overflow: hidden;
+    margin: auto;
+    z-index: 5000;
+    font-size: calc(var(--rem1) * 1.5);
+    font-family: "El Messiri", sans-serif;
+    color: black;
+    text-indent: 0;
+    padding: 0;
+}
+
+.ll {
+    margin-left: var(--rem05);
+    margin-right: var(--rem05);
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: calc(var(--rem1) * 1.5);
+    font-family: "El Messiri", sans-serif;
+}
+.ll:hover {
+    color: var(--black2);
+}
+
+.ll p {
+    margin: 0;
+    display: inline;
+}
+.contact p {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-size: var(--rem1);
+    color: white;
+    text-decoration: none;
+    font-family: "El Messiri", sans-serif;
+    margin-left: var(--rem1);
+    margin-right: var(--rem1);
+}
+.contact a {
+    font-size: var(--rem1);
+    color: white;
+    text-decoration: none;
+}
+.contact img {
+    width: var(--rem2);
+    height: var(--rem2);
+    margin: var(--rem05);
+    display: inline;
+    vertical-align: middle;
+}
+
+.flg {
+    width: 95%;
+}
