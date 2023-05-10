@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './MedicalTourismPlaces.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function MedicalTourismPlaces() {
 
@@ -22,6 +21,7 @@ export default function MedicalTourismPlaces() {
 
     return (
         <div className='mtcont'>
+            <DDownBar />
             <div className='mtc1'>
                 <div className='mtlt'>
                     <h1><i>-Medical Tourism Places:</i></h1>

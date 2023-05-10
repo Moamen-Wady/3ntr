@@ -67,8 +67,8 @@ export default function Navbar( { } ) {
     //// end signup doctor
 
     //form signup patient ++ post request
-    var [ userNameP, setUserNameP ] = useState()
     var [ fullNameP, setFullNameP ] = useState()
+    var [ userNameP, setUserNameP ] = useState()
     var [ pwP, setPwP ] = useState()
     var [ nidP, setNidP ] = useState()
     var [ genderP, setGenderP ] = useState()
@@ -196,9 +196,34 @@ export default function Navbar( { } ) {
         } ) ).data;
         if ( res.x == true ) { alert( 'done' ) }
         if ( res.x == false ) { alert( 'error' ) }
+        if ( res.x == "non-unique username" ) { alert( 'error' ) }
     }
     //// end signup doctor
 
+    //signin 
+    var [ userNameS, setUserNameS ] = useState()
+    var [ pwS, setpwS ] = useState()
+
+    const handleChangeUserS = ( event ) => {
+        var namePvalue = event.target.value;
+        setUserNameP( namePvalue );
+    };
+    const handleChangePwS = ( event ) => {
+        var pwp = event.target.value;
+        setPwP( pwp );
+    }
+
+    const signin = async () => {
+        var res = ( await api.get( '/signin/', {
+            userName: userNameP,
+            pw: pwP,
+        } ) ).data;
+        if ( res.x == true ) { alert( 'done' ) }
+        if ( res.x == false ) { alert( 'error' ) }
+    }
+
+
+    
     // signup button
     const showSignupPanel = () => {
         document.getElementById( 'su' ).style.display = 'block'
@@ -243,8 +268,9 @@ export default function Navbar( { } ) {
                 <img src='logon.png' alt='' />
             </div>
             <div className='signf' id="n">
-                <p>User Name<input type="text" /></p>
-                <p>Password<input type="password" /></p>
+                <p>User Name<input type="text" onChange={ () => handleChangeUserS() }/></p>
+                <p>Password<input type="password" onChange={ () => handleChangePwS() } /></p>
+                <a onClick={ () => signin() }>Login</a>
                 <a onClick={ () => slideout4() }>Cancel</a>
             </div>
 

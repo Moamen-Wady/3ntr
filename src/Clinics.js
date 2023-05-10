@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './Clinics.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function Clinics() {
 
@@ -22,6 +21,7 @@ export default function Clinics() {
 
     return (
         <div className='clicont'>
+            <DDownBar />
             <div className='clic1'>
                 <div className='clilt'>
                     <h1><i>-Clinics:</i></h1>
@@ -39,6 +39,7 @@ export default function Clinics() {
                         <div className='im2'><img src='/cli/2.jpg' alt='' /></div>
                     </div>
 
+                    
                     <div className='cliprt'><h2>-Dr. Mona El Fangary<br />
                         Address:October Branch - La Cite Mall - Service Axis - Above Zone Auto<br />
                         Tel:<b>201003939153</b>

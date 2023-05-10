@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './Pharmacies.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function Pharmacies() {
 
@@ -22,6 +21,7 @@ export default function Pharmacies() {
 
     return (
         <div className='phcont'>
+            <DDownBar />
             <div className='phc1'>
                 <div className='phlt'>
                     <h1><i>-Pharmacies:</i></h1>

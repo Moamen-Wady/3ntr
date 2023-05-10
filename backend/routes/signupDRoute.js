@@ -1,34 +1,44 @@
 const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const router = express.Router();
-const Doc = require( '../models/docSchema' );
+const DocRequests = require( '../models/docRequestsSchema' );
+const User = require( '../models/allusersSchema' );
 router.route( '/signupd' )
 
-router.post( '/signupd/', async ( req, res, err ) => {
+
+router.post( '/signupd/', async ( req, res ) => {
     var userName = req.body.userName
     var fullName = req.body.fullName
     var pw = req.body.pw
     var cv = req.body.cv
 
-    console.log(cv)
-    var thisDoc = new Doc( {
+    var duplicate = ( await User.find( { userName: userName } ) )
+    console.log( duplicate )
+
+    var thisDocRequests = new DocRequests( {
         userName: userName,
         fullName: fullName,
         pw: pw
     } )
+    var thisUser = new User( {
+        userName: userName,
+        pw: pw
+    } )
 
-    function err( err ) {
-        if ( !err ) {
-            thisDoc.save();
-            console.log( thisDoc )
-            res.send( { x: true } );
+    function response() {
+        if ( duplicate[ 0 ] !== undefined ) {
+            res.send( { x: false } );
+            console.log( 'not unique' )
+            console.log( thisDocRequests )
         }
         else {
-            console.log( err )
-            res.send( { x: false } );
+            res.send( { x: true } );
+            thisUser.save();
+            thisDocRequests.save();
+            console.log( thisDocRequests )
         }
     }
-    err();
+    response();
 } );
 
 module.exports = router;

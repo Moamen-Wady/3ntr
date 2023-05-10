@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './OrganTransplantCenters.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function OrganTransplantCenters() {
 
@@ -22,6 +21,7 @@ export default function OrganTransplantCenters() {
 
     return (
         <div className='otccont'>
+            <DDownBar />
             <div className='otcc1'>
                 <div className='otclt'>
                     <h1><i>-Organ Transplant Centers:</i></h1>

@@ -25,10 +25,9 @@
 }
 
 .labprt div:nth-child(1) {
-width: 85%;
-display: block;
+    width: 85%;
+    display: block;
 }
-
 
 .labprt a {
     font-size: var(--rem105);
@@ -45,7 +44,7 @@ display: block;
 }
 .labcont h2 {
     display: inline-block;
-    white-space:break-spaces;
+    white-space: break-spaces;
     color: white;
     font-family: sans-serif;
     font-size: calc(var(--rem1) * 1.25);

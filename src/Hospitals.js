@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './Hospitals.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function Hospitals() {
 
@@ -22,6 +21,7 @@ export default function Hospitals() {
 
     return (
         <div className='hostcont'>
+            <DDownBar />
             <div className='hostc1'>
                 <div className='hostlt'>
                     <h1><i>-Hospitals:</i></h1>

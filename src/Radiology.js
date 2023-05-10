@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './Radiology.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function Radiology() {
 
@@ -22,6 +21,7 @@ export default function Radiology() {
 
     return (
         <div className='radcont'>
+            <DDownBar />
             <div className='radc1'>
                 <div className='radlt'>
                     <h1><i>-Radiology:</i></h1>

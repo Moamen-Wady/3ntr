@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './home.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Navbar from './components/navbar';
 
 

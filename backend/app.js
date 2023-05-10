@@ -21,15 +21,12 @@ app.use( '/', require( './routes/signupPRoute' ) );
 const db = mongoose.connect( "mongodb+srv://moamenwady:121212m@cluster0.iumas.mongodb.net/pharaohs", {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}, function ( err ) {
+} ).then( function ( err ) {
     if ( !err ) { console.log( 'connected' ) }
     else { console.log( err ) }
 } );
-
 const serverx = http.createServer( app );
 serverx.listen( 3005, console.log( "ok" ) );
-
-
 app.get( "/", ( req, res ) => {
     res.send( 'ok' )
 } )

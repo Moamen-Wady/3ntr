@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './OnlinePsychtherapyApplications.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function OnlinePsychotherapyApplications() {
 
@@ -22,6 +21,7 @@ export default function OnlinePsychotherapyApplications() {
 
     return (
         <div className='ostcont'>
+            <DDownBar />
             <div className='ostc1'>
                 <div className='ostlt'>
                     <h1><i>-Online Psychotherapy Applications:</i></h1>

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './components/footer'
 import './Orthotics.css'
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import DDownBar from './components/ddownb';
 
 export default function Orthotics() {
 
@@ -22,6 +21,7 @@ export default function Orthotics() {
 
     return (
         <div className='orthcont'>
+            <DDownBar />
             <div className='orthc1'>
                 <div className='orthlt'>
                     <h1><i>-Orthotics:</i></h1>
