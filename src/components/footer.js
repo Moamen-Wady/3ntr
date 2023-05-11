@@ -28,17 +28,16 @@ export default function Footer() {
           <Link to='/laboratories' className='ll '><p>-Laboratories</p></Link>
           <Link to='/orthotics' className='ll '><p>-Orthotics</p></Link>
           <Link to='/radiology' className='ll '><p>-Radiology</p></Link>
-          <Link to='#' className='ll '><p>-Vaccination Centers</p></Link>
           <Link to='/organtransplantcenters' className='ll '><p>-Organ Transplant Centers</p></Link>
         </div>
 
         <div className='portion '>
           <div className='contact '>
             <p>
-              <img src='/mail.png' alt='mail' /> <a href="mailto:">Info@xxxxxxx.com</a>
+              <img src='/mail.png' alt='mail' /> <a href="mailto:">PharaohsMedicare@gmail.com</a>
             </p>
             <p>
-              <img src='/phone.png' alt='phone' /> <a href="tel:">0xxxxxxxxx</a>
+              <img src='/phone.png' alt='phone' /> <a href="tel:">+201128442419</a>
             </p>
           </div>
         </div>
