@@ -31,6 +31,13 @@ export default function Radiology() {
                     </h2>
                         <div className='im2'><img src='/radiology/1.png' alt='' /></div>
                     </div>
+                    <div className='radprt'><h2>-Dar Al Ashe'aa<br />
+                        Address:Smouha Branch:
+                        14 Mostafa Kamel Street, Smouha, next to Alexandria International Hospital<br />
+                        Tel: <b>4266656 – 4266657 – 4288542 – 01140777792</b>
+                    </h2>
+                        <div className='im2'><img src='/radiology/dash.jpg' alt='' /></div>
+                    </div>
 
                     <div className='radprt'><h2>-Andalusia Hospital Al Maadi<br />
                         Address:4G/6 Takseem Al Maadi - New، Maadi, Cairo Governorate , Cairo, QH, Egypt<br />

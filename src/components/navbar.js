@@ -1,11 +1,60 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 import { useState } from 'react'
 import api from './api'
 export default function Navbar( { } ) {
 
+    //signed in or not
+    var [ userObject, setUserObject ] = useState( { type: "none" } );
+    var [ userSide, setUserSide ] = useState()
+    const userSideDecider = () => {
+        switch ( userObject.type ) {
 
+            case "admin":
+                setUserSide( <>
+                    <li className='icon' ><a>Welcome, { userObject.name } </a></li>
+                    <li className='icon' onClick={ () => LogOut() }><a>Log Out <img src='sout.png' alt='' /></a></li>
+                    <li className='icon' onClick={ () => LogOut() }><a>Manage Website<img src='sout.png' alt='' /></a></li>
+                </> )
+                break;
+
+
+            case "Doctor":
+                setUserSide( <>
+                    <li className='icon' ><a>Welcome, { userObject.name } </a></li>
+                    <li className='icon' onClick={ () => LogOut() }><a>Log Out <img src='sout.png' alt='' /></a></li>
+                </> )
+                break;
+
+
+            case "Patient":
+                setUserSide( <>
+                    <li className='icon' ><a>Welcome, { userObject.name } </a></li>
+                    <li className='icon' onClick={ () => LogOut() }><a>Log Out <img src='sout.png' alt='' /></a></li>
+                </> )
+                break;
+
+            case "none":
+                setUserSide( <>
+                    <li className='icon' onClick={ () => slidein4() }><a>Sign In <img src='sin.png' alt='' /></a></li>
+                    <li className='icon' onClick={ () => showSignupPanel() }><a>Sign Up <img src='sup.png' alt='' /></a></li>
+                </> )
+                break;
+
+        }
+
+        console.log( userObject )
+    }
+
+    useEffect(
+        () => userSideDecider()
+        , [ userObject ] )
+
+    function LogOut() {
+        setUserObject( { type: "none" } );
+    }
+    //navbar
     function menuh() {
         var hb = document.getElementById( "hide" );
         var vb = document.getElementById( "view" );
@@ -57,11 +106,11 @@ export default function Navbar( { } ) {
             userName: userNameD,
             fullName: fullNameD,
             pw: pwD,
-            cv: CVD
+            cv: CVD,
+            type: "admin"
         } ) ).data;
-        console.log( CVD );
-        if ( res.x == true ) { alert( 'done' ) }
-        if ( res.x == false ) { alert( 'error' ) }
+        if ( res.x == true ) { alert( 'done' ); setUserObject( { name: res.user.fname, type: res.user.type } ); cancel(); }
+        if ( res.x == false ) { alert( 'user name is already taken, please try another one' ) }
     }
 
     //// end signup doctor
@@ -192,11 +241,12 @@ export default function Navbar( { } ) {
             phone: phoneP,
             job: jobP,
             nationality: nationalityP,
-            EHR: EHRP
+            EHR: EHRP,
+            type: "Patient"
+
         } ) ).data;
-        if ( res.x == true ) { alert( 'done' ) }
-        if ( res.x == false ) { alert( 'error' ) }
-        if ( res.x == "non-unique username" ) { alert( 'error' ) }
+        if ( res.x == true ) { alert( 'done' ); setUserObject( { name: res.user.fname, type: res.user.type } ); cancel(); }
+        if ( res.x == false ) { alert( 'user name is already taken, please try another one' ) }
     }
     //// end signup doctor
 
@@ -204,26 +254,27 @@ export default function Navbar( { } ) {
     var [ userNameS, setUserNameS ] = useState()
     var [ pwS, setpwS ] = useState()
 
-    const handleChangeUserS = ( event ) => {
-        var namePvalue = event.target.value;
-        setUserNameP( namePvalue );
-    };
+    const handleChangeUserNameS = ( event ) => {
+        var pwp = event.target.value;
+        setUserNameS( pwp );
+    }
     const handleChangePwS = ( event ) => {
         var pwp = event.target.value;
-        setPwP( pwp );
+        setpwS( pwp );
     }
+
 
     const signin = async () => {
-        var res = ( await api.get( '/signin/', {
-            userName: userNameP,
-            pw: pwP,
+        var res = ( await api.post( '/signin/', {
+            userName: userNameS,
+            pw: pwS,
         } ) ).data;
-        if ( res.x == true ) { alert( 'done' ) }
-        if ( res.x == false ) { alert( 'error' ) }
+        if ( res.x == true ) { alert( 'done' ); setUserObject( { name: res.user.fname, type: res.user.type } ); slideout4(); }
+        if ( res.x == false ) { alert( 'incorrect user name or Password, please try again' ) }
     }
 
 
-    
+
     // signup button
     const showSignupPanel = () => {
         document.getElementById( 'su' ).style.display = 'block'
@@ -250,7 +301,6 @@ export default function Navbar( { } ) {
         document.getElementById( 'p' ).style.display = 'none'
         document.getElementById( 'd' ).style.display = 'none'
         document.getElementById( 'su' ).style.display = 'none'
-        document.getElementById( 'n' ).style.display = 'none'
     }
 
     const slidein4 = () => {
@@ -268,8 +318,8 @@ export default function Navbar( { } ) {
                 <img src='logon.png' alt='' />
             </div>
             <div className='signf' id="n">
-                <p>User Name<input type="text" onChange={ () => handleChangeUserS() }/></p>
-                <p>Password<input type="password" onChange={ () => handleChangePwS() } /></p>
+                <p>User Name<input type="text" onChange={ handleChangeUserNameS } /></p>
+                <p>Password<input type="password" onChange={ handleChangePwS } /></p>
                 <a onClick={ () => signin() }>Login</a>
                 <a onClick={ () => slideout4() }>Cancel</a>
             </div>
@@ -340,9 +390,8 @@ export default function Navbar( { } ) {
                         <Link to="/onlinepsychotherapyapplications">Online Psychotherapy Apps</Link>
                     </li>
                 </ul>
-                <li className='icon' onClick={ () => slidein4() }><a>Sign In <img src='up.png' alt='' /></a></li>
-                <li className='icon' onClick={ () => showSignupPanel() }><a>Sign Up <img src='up.png' alt='' /></a></li>
-                <li className='iconl'><a>Language <img src='up.png' alt='' /></a></li>
+                { userSide }
+                <li className='iconl'><a>Language <img src='lang.png' alt='' /></a></li>
             </ul>
 
         </div >

@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
 
 .nvbr {
-    width: 80%;
+    width: 87%;
     display: block;
     margin-right: auto;
     color: white;
@@ -24,19 +24,23 @@
 }
 
 .icon {
-    width: 22%;
+    width: fit-content;
     float: left;
+    margin-right: var(--rem105);
+    margin-left: var(--rem105);
 }
 .icon img {
-    width: var(--rem3);
+    width: calc(var(--rem2) * 1.1);
 }
 
 .iconl {
     width: fit-content;
+    margin-right: var(--rem105);
+    margin-left: var(--rem105);
     float: right;
 }
 .iconl img {
-    width: var(--rem3);
+    width: calc(var(--rem2) * 1.1);
 }
 
 .ul {
@@ -55,9 +59,10 @@
     text-align: center;
     margin: auto;
     width: max-content;
-    top: 3%;
+    top: 12%;
     left: 50%;
     transform: translateX(-50%);
+    z-index: -1;
 }
 
 .logo img {

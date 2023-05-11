@@ -2,6 +2,7 @@ const mongoose = require( 'mongoose' )
 
 
 const patSchema = new mongoose.Schema( {
+    type: { type: String, required: true },
     fullName: { type: String, required: true },
     userName: { type: String, required: true },
     pw: { type: String, required: true },

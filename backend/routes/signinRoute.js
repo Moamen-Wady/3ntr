@@ -3,23 +3,52 @@ const router = express.Router();
 const User = require( '../models/allusersSchema' );
 const mongoose = require( 'mongoose' );
 router.route( '/signin' )
-router.get( '/signin', async ( req, res ) => {
-    const allusers = await ( User.find() );
-
-    console.log( allusers )
+router.post( '/signin', async ( req, res ) => {
     var userName = req.body.userName
     var pw = req.body.pw
 
-    var currentUser = allusers.find( { userName: userName } )
-    if ( currentUser.pw == pw ) {
-        res.send( { x: true } )
+    var currentUser = ( await User.find( { userName: userName } ) )
+    var currentUserfn = ( currentUser[ 0 ].fullName )
+    var currentUsertp = ( currentUser[ 0 ].type )
+    console.log( currentUser[ 0 ] )
+    console.log( currentUserfn )
+    function response() {
+        console.log( currentUser[ 0 ].pw )
+        console.log( pw )
+        switch ( currentUser[ 0 ].pw ) {
+            case pw: {
+                res.send( {
+                    x: true,
+                    user: {
+                        fname: currentUserfn,
+                        type: currentUsertp
+                    }
+                } );
+            }
+                break;
+            case !pw: {
+                res.send( { x: false } )
+            }
+                break;
+        }
     }
-    else {
-
-        res.send( { x: false } )
+    function isUser() {
+        switch ( currentUser ) {
+            case undefined: {
+                res.send( { x: false } )
+            };
+                break;
+            case []: {
+                res.send( { x: false } )
+            };
+                break;
+            default: { response() }
+                break;
+        }
     }
-    const User = ( await Pat.findOne( { userName: userName } ) )
-} );
+    isUser();
+}
+);
 
 
 module.exports = router;

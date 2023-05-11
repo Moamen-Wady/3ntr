@@ -5,11 +5,12 @@ const Pat = require( '../models/patSchema' );
 const User = require( '../models/allusersSchema' );
 router.route( '/signupp' )
 
-router.post( '/signupp/', async ( req, res, err ) => {
+router.post( '/signupp/', async ( req, res ) => {
     var fullName = req.body.fullName
     var userName = req.body.userName
     var pw = req.body.pw
     var nid = req.body.nid
+    var type = req.body.type
     var gender = req.body.gender
     var age = req.body.age
     var maritalStatus = req.body.maritalStatus
@@ -18,10 +19,13 @@ router.post( '/signupp/', async ( req, res, err ) => {
     var job = req.body.job
     var nationality = req.body.nationality
     var EHR = req.body.EHR
+    var duplicate = ( await User.find( { userName: userName } ) )
+    console.log( duplicate )
 
     var thisPat = new Pat( {
         userName: userName,
         fullName: fullName,
+        type: type,
         pw: pw,
         nid: nid,
         gender: gender,
@@ -34,30 +38,35 @@ router.post( '/signupp/', async ( req, res, err ) => {
         EHR: EHR
     } )
     var thisUser = new User( {
+        type: type,
         userName: userName,
-        pw: pw,
+        fullName: fullName,
+        pw: pw
     } )
 
-    function err( err ) {
-        if ( !err ) {
-            thisPat.save().then( ( er ) => {
-                if ( !er ) {
-                    console.log( thisPat )
-                    thisUser.save();
-                    res.send( { x: true } );
-                }
-                else {
-                    console.log( er );
-                    res.send( { x: "non-unique username" } )
-                }
-            } );
+
+
+    function response() {
+        if ( duplicate[ 0 ] !== undefined ) {
+            res.send( { x: false } );
+            console.log( 'not unique' )
         }
         else {
-            console.log( err )
-            res.send( { x: false } );
+            res.send( {
+                x: true,
+                user: {
+                    type: "Patient",
+                    fname: fullName
+                }
+            } );
+            thisUser.save();
+            thisPat.save();
+            console.log( thisPat )
         }
     }
-    err();
+    response();
+
+
 } );
 
 module.exports = router;
