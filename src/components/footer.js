@@ -34,10 +34,10 @@ export default function Footer() {
         <div className='portion '>
           <div className='contact '>
             <p>
-              <img src='/mail.png' alt='mail' /> <a href="mailto:">PharaohsMedicare@gmail.com</a>
+              <img src='/mail.png' alt='mail' /> <a href="mailto:PharaohsMedicare@gmail.com">PharaohsMedicare@gmail.com</a>
             </p>
             <p>
-              <img src='/phone.png' alt='phone' /> <a href="tel:">+201128442419</a>
+              <img src='/phone.png' alt='phone' /> <a href="tel+201128442419:">+201128442419</a>
             </p>
           </div>
         </div>

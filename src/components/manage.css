@@ -1,0 +1,61 @@
+.tables {
+    display: block;
+    margin: auto;
+    width: 100%;
+    border: 2px solid white;
+}
+
+span {
+    width: 48%;
+    display: inline-block;
+    margin: 1%;
+    background-color: white;
+    color: darkblue;
+    font-size: var(--rem3);
+    text-align: center;
+    cursor: pointer;
+}
+
+span:hover {
+    color: white;
+    background-color: darkblue;
+}
+
+th {
+    background-color: white;
+    border: 1px solid white;
+    border-collapse: collapse;
+    font-size: var(--rem2);
+    color: rgb(20, 42, 87);
+    text-align: center;
+}
+
+tbody,
+td,
+tr {
+    border: 1px solid white;
+    border-collapse: collapse;
+    font-size: var(--rem2);
+    color: white;
+    text-align: center;
+}
+tbody {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+    margin-top: var(--rem2);
+    margin-bottom: var(--rem2);
+}
+
+table a {
+    display: inline-block;
+    padding: var(--rem05);
+    margin: var(--rem05);
+    cursor: pointer;
+    border: 1px inset darkblue;
+    background-color: white;
+    color: darkblue;
+}

@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
-import { useState } from 'react'
 import api from './api'
-export default function Navbar( { } ) {
+import Logo from './logo'
+export default function Navbar( { userObject, setUserObject } ) {
 
     //signed in or not
-    var [ userObject, setUserObject ] = useState( { type: "none" } );
     var [ userSide, setUserSide ] = useState()
     const userSideDecider = () => {
         switch ( userObject.type ) {
@@ -15,12 +14,12 @@ export default function Navbar( { } ) {
                 setUserSide( <>
                     <li className='icon' ><a>Welcome, { userObject.name } </a></li>
                     <li className='icon' onClick={ () => LogOut() }><a>Log Out <img src='sout.png' alt='' /></a></li>
-                    <li className='icon' onClick={ () => LogOut() }><a>Manage Website<img src='sout.png' alt='' /></a></li>
+                    <li className='icon ' onClick={ () => { console.log( userObject ) } }><Link to='/manage'>Manage Website<img src='sout.png' alt='' /></Link></li>
                 </> )
                 break;
 
 
-            case "Doctor":
+            case "Doc":
                 setUserSide( <>
                     <li className='icon' ><a>Welcome, { userObject.name } </a></li>
                     <li className='icon' onClick={ () => LogOut() }><a>Log Out <img src='sout.png' alt='' /></a></li>
@@ -28,7 +27,7 @@ export default function Navbar( { } ) {
                 break;
 
 
-            case "Patient":
+            case "Pat":
                 setUserSide( <>
                     <li className='icon' ><a>Welcome, { userObject.name } </a></li>
                     <li className='icon' onClick={ () => LogOut() }><a>Log Out <img src='sout.png' alt='' /></a></li>
@@ -41,6 +40,7 @@ export default function Navbar( { } ) {
                     <li className='icon' onClick={ () => showSignupPanel() }><a>Sign Up <img src='sup.png' alt='' /></a></li>
                 </> )
                 break;
+            default:
 
         }
 
@@ -65,6 +65,7 @@ export default function Navbar( { } ) {
         document.getElementById( 'i3' ).style.display = 'none'
         document.getElementById( 'i4' ).style.display = 'none'
         document.getElementById( 'i5' ).style.display = 'none'
+        document.getElementById( 'i6' ).style.display = 'none'
     }
 
     function menu() {
@@ -77,13 +78,13 @@ export default function Navbar( { } ) {
         document.getElementById( 'i3' ).style.display = 'block'
         document.getElementById( 'i4' ).style.display = 'block'
         document.getElementById( 'i5' ).style.display = 'block'
+        document.getElementById( 'i6' ).style.display = 'block'
     }
 
     //form signup doctor ++ post request
     var [ userNameD, setUserNameD ] = useState()
     var [ fullNameD, setFullNameD ] = useState()
     var [ pwD, setPwD ] = useState()
-    var [ CVD, setCVD ] = useState()
 
     const handleChangeUserD = ( event ) => {
         var nameDvalue = event.target.value;
@@ -97,19 +98,26 @@ export default function Navbar( { } ) {
         var pwd = event.target.value;
         setPwD( pwd );
     }
-    const handleChangeCVD = ( x ) => {
-        setCVD( x );
-    }
+    var [ d, setD ] = useState()
+    const openFile = function ( event ) {
+        var input = event.target;
+        var reader = new FileReader();
+        reader.readAsDataURL( input.files[ 0 ] );
+        reader.onload = function () {
+            setD( reader.result );
+            console.log( reader.result )
+        };
+    };
 
     const signd = async () => {
         var res = ( await api.post( '/signupd/', {
             userName: userNameD,
             fullName: fullNameD,
             pw: pwD,
-            cv: CVD,
-            type: "admin"
+            cv: d,
+            type: "Doc"
         } ) ).data;
-        if ( res.x == true ) { alert( 'done' ); setUserObject( { name: res.user.fname, type: res.user.type } ); cancel(); }
+        if ( res.x == true ) { alert( 'done' ); cancel(); }
         if ( res.x == false ) { alert( 'user name is already taken, please try another one' ) }
     }
 
@@ -131,7 +139,7 @@ export default function Navbar( { } ) {
     var [ weight, setWeight ] = useState()
     var [ height, setHeight ] = useState()
     var [ allergies, setAllergies ] = useState()
-    var [ chroniceDisease, setChroniceDisease ] = useState()
+    var [ chronicDisease, setChronicDisease ] = useState()
     var [ surgicalHistory, setSurgicalHistory ] = useState()
     var [ bloodType, setBloodType ] = useState()
 
@@ -189,7 +197,7 @@ export default function Navbar( { } ) {
     }
 
     const handleChangeEHRP = () => {
-        setEHRP( { weight: weight, height: height, chroniceDisease: chroniceDisease, surgicalHistory: surgicalHistory, bloodType: bloodType, allergies: allergies } )
+        setEHRP( { weight: weight, height: height, Chronic_Disease: chronicDisease, Surgical_History: surgicalHistory, Blood_Type: bloodType, allergies: allergies } )
     }
 
     const handleChangeWeight = ( event ) => {
@@ -206,7 +214,7 @@ export default function Navbar( { } ) {
 
     const handleChangeChronicDisease = ( event ) => {
         var pwp = event.target.value;
-        setChroniceDisease( pwp );
+        setChronicDisease( pwp );
         handleChangeEHRP();
     }
 
@@ -242,7 +250,7 @@ export default function Navbar( { } ) {
             job: jobP,
             nationality: nationalityP,
             EHR: EHRP,
-            type: "Patient"
+            type: "Pat"
 
         } ) ).data;
         if ( res.x == true ) { alert( 'done' ); setUserObject( { name: res.user.fname, type: res.user.type } ); cancel(); }
@@ -288,21 +296,13 @@ export default function Navbar( { } ) {
         document.getElementById( 'd' ).style.display = 'block'
         document.getElementById( 'su' ).style.display = 'none'
     }
-    //show signin
-    const showSignin = () => {
-        document.getElementById( 'n' ).style.display = 'block'
-        document.getElementById( 'su' ).style.display = 'none'
-        document.getElementById( 'p' ).style.display = 'none'
-        document.getElementById( 'd' ).style.display = 'none'
-
-    }
     // cancel button 
     const cancel = () => {
         document.getElementById( 'p' ).style.display = 'none'
         document.getElementById( 'd' ).style.display = 'none'
         document.getElementById( 'su' ).style.display = 'none'
     }
-
+    //show signin
     const slidein4 = () => {
         document.getElementById( 'n' ).classList.remove( 'slideout' );
         document.getElementById( 'n' ).classList.add( 'slidein' );
@@ -313,87 +313,112 @@ export default function Navbar( { } ) {
     }
 
     return (
-        <div className='nvbr'>
-            <div className='logo'>
-                <img src='logon.png' alt='' />
-            </div>
-            <div className='signf' id="n">
-                <p>User Name<input type="text" onChange={ handleChangeUserNameS } /></p>
-                <p>Password<input type="password" onChange={ handleChangePwS } /></p>
-                <a onClick={ () => signin() }>Login</a>
-                <a onClick={ () => slideout4() }>Cancel</a>
-            </div>
+        <div style={ { display: "block", marginRight: 'auto', width: "100%" } }>
+            <div className='nvbr'>
+                <div className='signf' id="n">
+                    <p>User Name<input type="text" onChange={ handleChangeUserNameS } /></p>
+                    <p>Password<input type="password" onChange={ handleChangePwS } /></p>
+                    <a onClick={ () => signin() }>Login</a>
+                    <a onClick={ () => slideout4() }>Cancel</a>
+                </div>
 
-            <div className='signup' id='su'>
-                <h1>Sign Up</h1>
-                <a onClick={ () => showPatientSignup() }>Sign Up As a Patient </a>
-                <a onClick={ () => showDoctorSignup() }>Sign Up As a Medical Provider </a>
-                <br />
-                <a onClick={ () => cancel() } className='cancel'>Cancel</a>
-            </div>
-            <form className='signf' id='d'>
-                <p>Full Name:<input type="text" id="fullName" name="fullName" onChange={ handleChangeFullD } /></p>
-                <p>User Name:<input type="text" id="userName" name="userName" onChange={ handleChangeUserD } /></p>
-                <p>Password:<input type="password" id="pw" name="pw" onChange={ handleChangePwD } /></p>
-                <p>CV:<input type="file" id="cv" name="cv" /></p>
-                <a onClick={ () => signd() }>submit</a>
-                <a onClick={ () => cancel() }>Cancel</a>
-            </form>
+                <div className='signup' id='su'>
+                    <h1>Sign Up</h1>
+                    <a onClick={ () => showPatientSignup() }>Sign Up As a Patient </a>
+                    <a onClick={ () => showDoctorSignup() }>Sign Up As a Medical Provider </a>
+                    <br />
+                    <a onClick={ () => cancel() } className='cancel'>Cancel</a>
+                </div>
+                <form className='signf' id='d'>
+                    <p>Full Name:<input type="text" id="fullName" name="fullName" onChange={ handleChangeFullD } /></p>
+                    <p>User Name:<input type="text" id="userName" name="userName" onChange={ handleChangeUserD } /></p>
+                    <p>Password:<input type="password" id="pw" name="pw" onChange={ handleChangePwD } /></p>
+                    <p>CV:<input type="file" id="cv" name="cv" onChange={ openFile } /></p>
+                    <a onClick={ () => signd() }>submit</a>
+                    <a onClick={ () => cancel() }>Cancel</a>
+                </form>
 
-            <form className='signf' id='p' >
-                <p>Full Name:<input type="text" onChange={ handleChangeFullP } /></p>
-                <p>User Name:<input type="text" onChange={ handleChangeUserP } /></p>
-                <p>Password:<input type="password" onChange={ handleChangePwP } /></p>
-                <p>National ID:<input type="text" onChange={ handleChangeNidP } /></p>
-                <p>Gender:<input type="text" onChange={ handleChangeGenderP } /></p>
-                <p>Age:<input type="number" onChange={ handleChangeAgeP } /></p>
-                <p>Marital Status:<input type="text" onChange={ handleChangeMaritalStatusP } /></p>
-                <p>Address:<input type="text" onChange={ handleChangeAdressP } /></p>
-                <p>Phone:<input type="text" onChange={ handleChangePhoneP } /></p>
-                <p>Job:<input type="text" onChange={ handleChangeJobP } /></p>
-                <p>Nationality:<input type="text" onChange={ handleChangeNationalityP } /></p>
-                <p>Weight:<input type="text" onChange={ handleChangeWeight } /></p>
-                <p>Height:<input type="text" onChange={ handleChangeHeight } /></p>
-                <p>Chronic Disease:<input type="text" onChange={ handleChangeChronicDisease } /></p>
-                <p>surgical History:<input type="text" onChange={ handleChangeSurgicalHistory } /></p>
-                <p>Blood Type:<input type="text" onChange={ handleChangeBloodType } /></p>
-                <p>Allergies:<input type="text" onChange={ handleChangeAllergies } /></p>
-                <a onClick={ () => signp() }>submit</a>
-                <a onClick={ () => cancel() }>Cancel</a>
-            </form>
+                <form className='signf' id='p' >
+                    <p>Full Name:<input type="text" onChange={ handleChangeFullP } /></p>
+                    <p>User Name:<input type="text" onChange={ handleChangeUserP } /></p>
+                    <p>Password:<input type="password" onChange={ handleChangePwP } /></p>
+                    <p>National ID:<input type="text" onChange={ handleChangeNidP } /></p>
+                    <p>Gender:<input type="text" onChange={ handleChangeGenderP } /></p>
+                    <p>Age:<input type="number" onChange={ handleChangeAgeP } /></p>
+                    <p>Marital Status:<input type="text" onChange={ handleChangeMaritalStatusP } /></p>
+                    <p>Address:<input type="text" onChange={ handleChangeAdressP } /></p>
+                    <p>Phone:<input type="text" onChange={ handleChangePhoneP } /></p>
+                    <p>Job:<input type="text" onChange={ handleChangeJobP } /></p>
+                    <p>Nationality:<input type="text" onChange={ handleChangeNationalityP } /></p>
+                    <p>Weight:<input type="text" onChange={ handleChangeWeight } /></p>
+                    <p>Height:<input type="text" onChange={ handleChangeHeight } /></p>
+                    <p>Chronic Disease:<input type="text" onChange={ handleChangeChronicDisease } /></p>
+                    <p>surgical History:<input type="text" onChange={ handleChangeSurgicalHistory } /></p>
+                    <p>Blood Type:<input type="text" onChange={ handleChangeBloodType } /></p>
+                    <p>Allergies:<input type="text" onChange={ handleChangeAllergies } /></p>
+                    <a onClick={ () => signp() }>submit</a>
+                    <a onClick={ () => cancel() }>Cancel</a>
+                </form>
 
-            <ul className='ul'>
-                <li className='icon1'>
-                    <li className="n" id="haha">
-                        <a id="hide" onClick={ () => menu() }>
-                            <img src="up.png" alt=""
-                            /></a>
-                        <a id="view" onClick={ () => menuh() }>
-                            <img src="up.png" alt="" />
-                        </a>
+                <ul className='ul'>
+                    <li className='icon1'>
+                        <li className="n" id="haha">
+                            <a id="hide" onClick={ () => menu() }>
+                                <img src="up.png" alt=""
+                                /></a>
+                            <a id="view" onClick={ () => menuh() }>
+                                <img src="up.png" alt="" />
+                            </a>
+                        </li>
                     </li>
-                </li>
-                <ul className="main" style={ { listStyleType: 'none' } }>
-                    <li className="n" id="i1">
-                        <Link to="/index.html">Home</Link>
-                    </li>
-                    <li className="n" id="i2">
-                        <Link to="/aboutus">About Us</Link>
-                    </li>
-                    <li className="n" id="i3">
-                        <Link to="/travelagencies">Travel Agncies</Link>
-                    </li>
-                    <li className="n" id="i4">
-                        <Link to="/medicaltourismplaces">Medical Tourism Places</Link>
-                    </li>
-                    <li className="n" id="i5">
-                        <Link to="/onlinepsychotherapyapplications">Online Psychotherapy Apps</Link>
-                    </li>
+                    <ul className="main" style={ { listStyleType: 'none' } }>
+                        <li className="n" id="i1">
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li className="n" id="i2">
+                            <Link to="/aboutus">About Us</Link>
+                        </li>
+                        <li className="n our" id="i3">
+                            <a href="#"> Our Services &#10095; </a>
+                            <ul className="ourServices">
+                                <li>
+                                    <Link to="/hospitals">Hospitals</Link>
+                                </li>
+                                <li>
+                                    <Link to="/clinics">Clinics</Link>
+                                </li>
+                                <li>
+                                    <Link to="/pharmacies">Pharmacies</Link>
+                                </li>
+                                <li>
+                                    <Link to="/laboratories">Laboratories</Link>
+                                </li>
+                                <li>
+                                    <Link to="/orthotics">Orthotics</Link>
+                                </li>
+                                <li>
+                                    <Link to="/radiology">Radiology</Link>
+                                </li>
+                                <li>
+                                    <Link to="/organtransplantcenters">Organ Transplant Centers</Link>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li className="n" id="i4">
+                            <Link to="/travelagencies">Travel Agncies</Link>
+                        </li>
+                        <li className="n" id="i5">
+                            <Link to="/medicaltourismplaces">Medical Tourism Places</Link>
+                        </li>
+                        <li className="n" id="i6">
+                            <Link to="/onlinepsychotherapyapplications">Online Psychotherapy Apps</Link>
+                        </li>
+                    </ul>
+                    { userSide }
                 </ul>
-                { userSide }
-                <li className='iconl'><a>Language <img src='lang.png' alt='' /></a></li>
-            </ul>
-
+            </div>
+            <Logo />
         </div >
     )
 }

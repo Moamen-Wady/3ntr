@@ -13,6 +13,7 @@ export default function DDownBar( { } ) {
         document.getElementById( 'i3' ).style.display = 'none'
         document.getElementById( 'i4' ).style.display = 'none'
         document.getElementById( 'i5' ).style.display = 'none'
+        document.getElementById( 'i6' ).style.display = 'none'
     }
 
     function menu() {
@@ -25,6 +26,7 @@ export default function DDownBar( { } ) {
         document.getElementById( 'i3' ).style.display = 'block'
         document.getElementById( 'i4' ).style.display = 'block'
         document.getElementById( 'i5' ).style.display = 'block'
+        document.getElementById( 'i6' ).style.display = 'block'
     }
 
     return (
@@ -41,22 +43,48 @@ export default function DDownBar( { } ) {
             </li>
             <ul className="main" style={ { listStyleType: 'none' } }>
                 <li className="n" id="i1">
-                    <Link to="/index">Home</Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li className="n" id="i2">
                     <Link to="/aboutus">About Us</Link>
                 </li>
-                <li className="n" id="i3">
+                <li className="n our" id="i3">
+                    <a href="#"> Our Services &#10095; </a>
+                    <ul className="ourServices">
+                        <li>
+                            <Link to="/hospitals">Hospitals</Link>
+                        </li>
+                        <li>
+                            <Link to="/clinics">Clinics</Link>
+                        </li>
+                        <li>
+                            <Link to="/pharmacies">Pharmacies</Link>
+                        </li>
+                        <li>
+                            <Link to="/laboratories">Laboratories</Link>
+                        </li>
+                        <li>
+                            <Link to="/orthotics">Orthotics</Link>
+                        </li>
+                        <li>
+                            <Link to="/radiology">Radiology</Link>
+                        </li>
+                        <li>
+                            <Link to="/organtransplantcenters">Organ Transplant Centers</Link>
+                        </li>
+                    </ul>
+                </li>
+
+                <li className="n" id="i4">
                     <Link to="/travelagencies">Travel Agncies</Link>
                 </li>
-                <li className="n" id="i4">
+                <li className="n" id="i5">
                     <Link to="/medicaltourismplaces">Medical Tourism Places</Link>
                 </li>
-                <li className="n" id="i5">
+                <li className="n" id="i6">
                     <Link to="/onlinepsychotherapyapplications">Online Psychotherapy Apps</Link>
                 </li>
             </ul>
         </ul>
-
     )
 }

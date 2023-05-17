@@ -55,7 +55,7 @@ router.post( '/signupp/', async ( req, res ) => {
             res.send( {
                 x: true,
                 user: {
-                    type: "Patient",
+                    type: "Pat",
                     fname: fullName
                 }
             } );

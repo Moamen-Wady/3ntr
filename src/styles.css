@@ -3,9 +3,13 @@ body {
     margin: 0;
     overflow: visible;
     background-image: url("../public/bg.jpg");
-    background-attachment: local;
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    margin: var(--rem05);
     text-transform: capitalize;
+}
+
+#root {
+    overflow: hidden;
+background-color: rgba(0, 0, 0, 0.2);
 }

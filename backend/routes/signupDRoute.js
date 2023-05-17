@@ -5,7 +5,6 @@ const DocRequests = require( '../models/docRequestsSchema' );
 const User = require( '../models/allusersSchema' );
 router.route( '/signupd' )
 
-
 router.post( '/signupd/', async ( req, res ) => {
     var userName = req.body.userName
     var fullName = req.body.fullName
@@ -14,41 +13,50 @@ router.post( '/signupd/', async ( req, res ) => {
     var cv = req.body.cv
 
     var duplicate = ( await User.find( { userName: userName } ) )
-    console.log( duplicate )
+    var duplicate2 = ( await DocRequests.find( { userName: userName } ) )
 
     var thisDocRequests = new DocRequests( {
         userName: userName,
         fullName: fullName,
         type: type,
-        pw: pw
-    } )
-    var thisUser = new User( {
-        type: type,
-        userName: userName,
-        fullName: fullName,
-        pw: pw
+        pw: pw,
+        cv: cv
     } )
 
     function response() {
-        if ( duplicate[ 0 ] !== undefined ) {
+        if ( ( duplicate[ 0 ] !== undefined ) || ( duplicate2[ 0 ] !== undefined ) ) {
             res.send( { x: false } );
             console.log( 'not unique' )
-            console.log( thisDocRequests )
+            console.log( duplicate[ 0 ] )
         }
         else {
             res.send( {
-                x: true,
-                user: {
-                    fname: fullName,
-                    type: type
-                }
+                x: true
             } );
-            thisUser.save();
             thisDocRequests.save();
             console.log( thisDocRequests )
         }
     }
     response();
 } );
+
+router.get( '/signupd/', async ( req, res ) => {
+    var rs = ( await DocRequests.find() )
+    res.send( rs )
+}
+);
+router.get( '/signupd/:id', async ( req, res ) => {
+    var un = req.params.id
+    var rs = ( await DocRequests.find( { userName: un } ) )[ 0 ]
+    res.send( rs )
+}
+);
+router.delete( '/signupd/:id', async ( req, res ) => {
+    var id = req.params.id
+    await DocRequests.deleteOne( { userName: id } )
+    res.send( "done" )
+}
+);
+
 
 module.exports = router;

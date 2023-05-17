@@ -10,16 +10,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&display=swap");
 
+.lt {
+    width: 87.5%;
+    margin-right: auto;
+    border: 1px solid white;
+}
+
 .rt {
     width: 12%;
     float: right;
     margin-left: 0;
     margin-right: 0;
     border: 1px solid white;
+    height: 99.5vh;
+    position: fixed;
+    right: 0;
 }
 
 .rt img {
     width: 95%;
+    height: 32vh;
     display: block;
     padding: 2%;
     border: 1px solid white;
@@ -29,7 +39,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid white;
     overflow: hidden;
 }
 
@@ -92,5 +101,167 @@
         position: absolute;
         left: -50%;
         top: 50%;
+    }
+}
+
+div.inff {
+    width: 98.5%;
+    display: flex;
+    color: white;
+    font-size: calc(var(--rem105) * 7 / 6);
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: var(--rem05);
+    margin-top: var(--rem05);
+    border: 2px solid white;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 3%;
+}
+div.inff img {
+    border-radius: 3%;
+    width: 50%;
+}
+
+div.inff p {
+    display: inline-block;
+    padding: var(--rem05);
+    text-align: left;
+}
+
+div.inff a {
+    text-decoration: none;
+    color: blue;
+}
+div.infff {
+    width: 98.5%;
+    display: flex;
+    color: white;
+    font-size: calc(var(--rem105) * 7 / 6);
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: var(--rem05);
+    margin-top: var(--rem05);
+    border: 2px solid white;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 3%;
+}
+div.infff img {
+    border-radius: 3%;
+    width: 50%;
+}
+
+div.infff p {
+    display: inline-block;
+    padding: var(--rem05);
+    text-align: left;
+}
+
+div.infff a {
+    text-decoration: none;
+    color: blue;
+}
+
+h1 {
+    color: white;
+    font-size: calc(var(--rem2) * 1.25);
+    font-family: "Times New Roman", Times, serif;
+    margin-left: var(--rem1);
+}
+
+.slidez {
+    width: calc(var(--rem5) * 6);
+    height: calc(var(--rem5) * 6);
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    display: inline-block;
+    margin-right: var(--rem2);
+}
+
+.covered div {
+    background-size: cover;
+}
+
+.covered span {
+    background-size: cover;
+}
+.slidez div {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+}
+
+.slidez > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.sli-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+    align-content: flex-start;
+}
+
+.sli-cont h1 {
+    color: White;
+}
+
+.slidez > span > div:nth-child(1) {
+    animation: slideshowz 9s infinite;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.slidez > span > div:nth-child(2) {
+    animation: slideshowz 9s infinite;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    opacity: 0;
+}
+.slidez > span > div:nth-child(3) {
+    animation: slideshowz 9s infinite;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes slideshowz {
+    10% {
+        opacity: 1;
+        z-index: 3;
+    }
+    20% {
+        opacity: 1;
+        z-index: 3;
+    }
+    40% {
+        opacity: 1;
+        z-index: 3;
+    }
+    99.999% {
+        opacity: 1;
+        z-index: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: 0;
     }
 }

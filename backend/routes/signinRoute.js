@@ -10,9 +10,10 @@ router.post( '/signin', async ( req, res ) => {
     var currentUser = ( await User.find( { userName: userName } ) )
     var currentUserfn = ( currentUser[ 0 ].fullName )
     var currentUsertp = ( currentUser[ 0 ].type )
+    function response() {
     console.log( currentUser[ 0 ] )
     console.log( currentUserfn )
-    function response() {
+    console.log( currentUsertp )
         console.log( currentUser[ 0 ].pw )
         console.log( pw )
         switch ( currentUser[ 0 ].pw ) {
