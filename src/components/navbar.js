@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 import api from './api'
-import Logo from './logo'
-export default function Navbar( { userObject, setUserObject } ) {
+import Banner from './banner'
 
+
+export default function Navbar( { userObject, setUserObject } ) {
     //signed in or not
     var [ userSide, setUserSide ] = useState()
     const userSideDecider = () => {
@@ -251,8 +252,8 @@ export default function Navbar( { userObject, setUserObject } ) {
             nationality: nationalityP,
             EHR: EHRP,
             type: "Pat"
-
         } ) ).data;
+
         if ( res.x == true ) { alert( 'done' ); setUserObject( { name: res.user.fname, type: res.user.type } ); cancel(); }
         if ( res.x == false ) { alert( 'user name is already taken, please try another one' ) }
     }
@@ -418,7 +419,7 @@ export default function Navbar( { userObject, setUserObject } ) {
                     { userSide }
                 </ul>
             </div>
-            <Logo />
+            <Banner />
         </div >
     )
 }

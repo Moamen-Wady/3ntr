@@ -3,10 +3,12 @@ const mongoose = require( 'mongoose' );
 const http = require( 'http' );
 const helmet = require( 'helmet' );
 const compression = require( 'compression' );
-const app = express();
 const cors = require( 'cors' );
+
+const app = express();
+
 app.use( cors( {
-    origin: [ 'http://localhost:3000', 'http://localhost:3005', 'http://192.168.1.14:3000', 'http://192.168.1.14:3005' ],
+    origin: [ 'http://localhost:3000', 'http://localhost:3005' ],
     credentials: true,
     optionSuccessStatus: 200
 } ) );
@@ -24,11 +26,11 @@ app.use( '/', require( './routes/userRoute' ) );
 mongoose.connect( "mongodb+srv://moamenwady:121212m@cluster0.iumas.mongodb.net/pharaohs", {
     useNewUrlParser: true,
     useUnifiedTopology: true
-} )
+} ).catch( err => {
+    console.log( err )
+} ).then(
+    app.listen( 3005, console.log( "ok" ) ),
+    app.get( '/', ( req, res ) => { res.send( 'ok' ) } )
+)
 
 
-const serverx = http.createServer( app );
-serverx.listen( 3005, console.log( "ok" ) );
-app.get( "/", ( req, res ) => {
-    res.send( 'ok' )
-} )

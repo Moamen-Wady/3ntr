@@ -1,6 +1,6 @@
 import React from 'react'
 import './navbar.css'
-export default function Logo() {
+export default function Banner() {
     return (
         <div className='xlz'>
             <p className='txtx'>Welcome To Pharaohs Medicare</p>

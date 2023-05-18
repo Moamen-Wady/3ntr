@@ -45,15 +45,9 @@ router.get( '/signupd/', async ( req, res ) => {
     res.send( rs )
 }
 );
-router.get( '/signupd/:id', async ( req, res ) => {
-    var un = req.params.id
-    var rs = ( await DocRequests.find( { userName: un } ) )[ 0 ]
-    res.send( rs )
-}
-);
 router.delete( '/signupd/:id', async ( req, res ) => {
     var id = req.params.id
-    await DocRequests.deleteOne( { userName: id } )
+    await DocRequests.deleteOne( { userName: id } ).catch( err => { console.log( err ) } )
     res.send( "done" )
 }
 );

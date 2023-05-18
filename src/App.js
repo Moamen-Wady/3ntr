@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css'
-import Home from './Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './Home';
 import TravelAgencies from './TravelAgencies';
 import OnlinePsychotherapyApplications from './OnlinePsycotherapyApplications';
 import Radiology from './Radiology';
