@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
+.nvbr {
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-bottom: var(--rem05);
+    color: white;
+    font-size: var(--rem2);
+    text-align: center;
+    height: var(--rem5);
+    float: left;
+}
+
+.icon1 {
+    width: fit-content;
+    float: left;
+}
+
+.icon1 img {
+    width: var(--rem3);
+}
+
+.icon {
+    width: fit-content;
+    float: left;
+    margin-right: var(--rem105);
+    margin-left: var(--rem105);
+}
+.icon img {
+    width: calc(var(--rem2) * 1.1);
+}
+
+.icon a {
+    text-decoration: none;
+    color: white;
+}
+
+.iconl {
+    width: fit-content;
+    margin-right: var(--rem105);
+    margin-left: var(--rem105);
+    float: right;
+}
+.iconl img {
+    width: calc(var(--rem2) * 1.1);
+}
+
+.ul {
+    list-style-type: none;
+    display: block;
+    position: relative;
+    z-index: 501;
+}
+
+.nvbr a {
+    display: block;
+    cursor: pointer;
+}
+
+#i1,
+#i2,
+#i3,
+#i4,
+#i5,
+#i6,
+#view {
+    display: none;
+}
+
+.n img {
+    width: var(--rem3);
+    display: inline;
+    padding: 0;
+}
+
+.main {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 1%;
+    margin: 0;
+    z-index: 500;
+    background: rgba(255, 255, 255, 0.5);
+    width: max-content;
+    position: absolute;
+    top: 50%;
+    left: 3.05%;
+    transform: translateY(12.2%);
+}
+
+.n a {
+    display: block;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    font-size: var(--rem105);
+    font-family: sans-serif;
+    padding: var(--rem1);
+    width: 100%;
+}
+
+.n:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    color: white;
+}
+.n {
+    text-align: left;
+    display: block;
+    width: 100%;
+    transition: display 1s ease-in-out;
+}
+
+#view,
+#hide {
+    border-bottom: none;
+    padding: var(--rem05);
+}
+
+#haha :hover,
+#view :hover,
+#hide :hover {
+    background-color: transparent;
+}
+
+.signf {
+    display: none;
+    width: max-content;
+    background-color: white;
+    text-align: left;
+    padding: var(--rem1);
+    border-radius: 5%;
+    border: 1px solid black;
+}
+
+.signf a {
+    background-color: #90cafa;
+    color: black;
+    font-size: var(--rem1);
+    width: max-content;
+    display: block;
+    margin: auto;
+    margin-top: var(--rem05);
+    margin-bottom: var(--rem05);
+    padding: var(--rem05);
+    border: 1px solid black;
+    border-radius: 10%;
+}
+.signf .insub {
+    appearance: none;
+    white-space: pre-wrap;
+    cursor: pointer;
+    user-select: auto;
+    background-color: #90cafa;
+    color: black;
+    font-size: var(--rem1);
+    width: max-content;
+    display: block;
+    margin: auto;
+    margin-top: var(--rem05);
+    margin-bottom: var(--rem05);
+    padding: var(--rem05);
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+.signf div {
+    display: flex;
+    margin: var(--rem05);
+    width: 100%;
+    font-size: var(--rem1);
+    color: black;
+    align-items: self-start;
+    justify-content: space-between;
+}
+signf span:hover {
+background-color: transparent;
+}
+.signf input[type="text"],
+.signf input[type="file"],
+.signf input[type="number"],
+.signf input[type="date"],
+.signf textarea,
+.signf input[type="password"] {
+    margin-right: var(--rem05);
+    margin: 0;
+    background-color: white;
+    width: 49%;
+    resize: none;
+}
+
+.signup {
+    background-color: white;
+    padding: var(--rem1);
+    display: none;
+    width: max-content;
+}
+
+.signup h1 {
+    display: block;
+    margin: auto;
+    color: black;
+    font-size: var(--rem2);
+    margin-bottom: var(--rem1);
+}
+
+.signup a {
+    display: inline-block;
+    background-color: #90cafa;
+    margin-left: var(--rem05);
+    margin-right: var(--rem05);
+    margin-top: var(--rem05);
+    padding: var(--rem05);
+    border-radius: 4%;
+    font-size: var(--rem1);
+}
+
+.signf,
+.signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+}
+
+.cancel {
+    background-color: gray;
+    color: black;
+    font-size: var(--rem1);
+    width: max-content;
+    display: block;
+    margin: auto;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem05);
+}
+
+.slidein {
+    animation-name: slidein;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+}
+
+.slideout {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: block;
+    animation-name: slideout;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 99999;
+}
+
+@keyframes slidein {
+    from {
+        left: -50%;
+        top: 50%;
+    }
+
+    to {
+        left: 50%;
+        top: 50%;
+    }
+}
+
+@keyframes slideout {
+    from {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    to {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+    }
+}
+
+.txtx {
+    width: max-content;
+    color: white;
+    text-align: center;
+    text-align-last: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--rem3);
+    font-family: "Raleway";
+    font-weight: bold;
+    text-transform: capitalize;
+    transition-property: opacity;
+    transition-delay: 1s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    text-shadow: calc(var(--rem05) * -1) var(--rem05) var(--rem05)
+        rgba(0, 0, 0, 0.514);
+    z-index: 4;
+}
+
+.mid {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: 3;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    object-fit: fill;
+    z-index: 2;
+}
+.xlz {
+    display: block;
+    margin: auto;
+    width: max-content;
+    position: relative;
+    overflow: hidden;
+    width: 99%;
+    margin-right: 1%;
+    margin-left: 0.5%;
+    height: calc(var(--rem4) * 8);
+    z-index: 0;
+}
+
+.xlz .imgg {
+    width: calc(var(--rem5) * 4.5);
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.our {
+    position: relative;
+}
+
+.ourServices {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    top: 0;
+    right: -94%;
+    text-align: center;
+    padding: 0;
+}
+
+.our:hover .ourServices {
+    background-color: rgb(255, 255, 255, 0.5);
+    display: block;
+}
+.our:hover .ourServices > li:hover a {
+    background-color: white;
+    max-width: max-content;
+    width: 100%;
+    display: block;
+}

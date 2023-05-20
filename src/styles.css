@@ -1,0 +1,15 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    background-image: url("../public/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    text-transform: capitalize;
+}
+
+#root {
+    overflow: hidden;
+background-color: rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+@media only screen and (max-width: 820px) {
+    body .subthrd p {
+        font-size: calc(var(--rem1) * 1.5);
+        text-align: center;
+        display: block;
+        margin-top: var(--rem1);
+        margin-bottom: var(--rem1);
+    }
+    body .subthrd {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    body .subthrd div {
+        display: block;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 650px) {
+    body .subthrd p {
+        font-size: calc(var(--rem1) * 1.5);
+        text-align: center;
+        display: block;
+        margin-top: var(--rem1);
+        margin-bottom: var(--rem1);
+    }
+    body .subthrd {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    body .subthrd div {
+        display: block;
+        margin: auto;
+    }
+    body .snd ul {
+        font-size: var(--rem1);
+    }
+}
+@media only screen and (max-width: 455px) {
+    body .subthrd p {
+        font-size: calc(var(--rem1) * 1.5);
+        text-align: center;
+        display: block;
+        margin-top: var(--rem1);
+        margin-bottom: var(--rem1);
+    }
+    body .subthrd {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    body .subthrd div {
+        display: block;
+        margin: auto;
+    }
+    body .snd ul {
+        font-size: var(--rem1);
+        display: block;
+        max-width: 90%;
+        margin: var(--rem1);
+    }
+    body .snd li {
+        width: 90%;
+        text-align: justify;
+    }
+    body .snd {
+        display: block;
+        text-align: center;
+    }
+    body .snd img {
+        max-width: 70%;
+    }
+    body .aboutcont,
+    body .x8 {
+        width: 100%;
+    }
+}
+
+.aboutcont {
+    width: 95%;
+    margin: auto;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem2);
+    color: white;
+    overflow: hidden;
+}
+
+.x8 {
+    width: 80%;
+}
+
+.first {
+    max-width: 95%;
+    margin: auto;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem2);
+}
+
+.first h1 {
+    font-family: "El Messiri", sans-serif;
+    text-shadow: calc(var(--rem05) * 0.6) calc(var(--rem05) * 0.6)
+        calc(var(--rem05) * 0.5) black;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: var(--rem35);
+    color: #ffbf0f;
+}
+
+.first p {
+    font-family: "El Messiri", sans-serif;
+    text-align: justify;
+    text-align-last: center;
+    font-size: calc(var(--rem1) * 1.1);
+    text-transform: capitalize;
+}
+
+.snd {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem2);
+}
+
+.snd ul {
+    max-width: 45%;
+    display: inline-block;
+    font-size: calc(var(--rem1) * 1.4);
+    text-transform: capitalize;
+    list-style-type: disc;
+    margin: var(--rem05);
+}
+
+.snd li {
+    margin-top: var(--rem1);
+}
+
+.snd img {
+    display: inline-block;
+    max-width: 40%;
+    border-radius: 2%;
+    border: 1px solid black;
+    box-shadow: 3px 3px 5px black;
+}
+
+.thrd {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem3);
+}
+
+.thrd h1 {
+    font-family: "El Messiri", sans-serif;
+    text-shadow: calc(var(--rem05) * 0.5) calc(var(--rem05) * 0.5)
+        calc(var(--rem05) * 0.5) black;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: var(--rem35);
+    color: #ffbf0f;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem2);
+}
+.subthrd {
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    margin-top: var(--rem1);
+    margin-bottom: var(--rem2);
+}
+
+.subthrd div {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.subthrd p {
+    text-align: left;
+    font-size: calc(var(--rem1) * 1.5);
+    font-family: "El Messiri", sans-serif;
+    color: #ffbf0f;
+    margin: var(--rem1);
+    display: inline;
+    text-transform: capitalize;
+    text-shadow: calc(var(--rem05) * 0.2) calc(var(--rem05) * 0.2) black;
+}
